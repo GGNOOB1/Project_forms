@@ -56,7 +56,8 @@ document.getElementById('submitBtn').addEventListener('click', function (e) {
 
     recordItem.innerHTML = `
         <div class="record-header">
-            <p class="record-name"><strong>${novoRegistro.nome}</strong></p>
+            <p class="record-name"><strong>${novoRegistro.nome}</strong></p> -
+            <p class="record-name"><strong>${novoRegistro.numChamado}</strong></p>
             <div class="record-actions">
                 <button class="btn-edit">✏️ Editar</button>
                 <button class="btn-delete">🗑️ Excluir</button>
@@ -90,7 +91,7 @@ document.getElementById('submitBtn').addEventListener('click', function (e) {
             const registro = registros.splice(index, 1)[0];
             form.nome.value = registro.nome;
             form.data.value = registro.data;
-            form.marcas.value = registro.marcas;
+            form.marca.value = registro.marcas;
             form.especialidade.value = registro.especialidade;
             form.qtdPacientes.value = registro.qtdPacientes;
             form.quemSolicitou.value = registro.quemSolicitou;

@@ -39,8 +39,10 @@ document.getElementById('submitBtn').addEventListener('click', function (e) {
         id: Date.now(), // ID único apenas para controle local
         nome: form.nome.value.trim(),
         data: form.data.value.trim(),
-        marcas: form.marcas.value.trim(),
+        marca: form.marcas.value.trim(),
         especialidade: form.especialidade.value.trim(),
+        observacao: form.especialidade.value.trim(),
+        numChamado: form.especialidade.value.trim(),
         qtdPacientes: form.qtdPacientes.value.trim(),
         quemSolicitou: form.quemSolicitou.value.trim(),
         motivo: form.motivo.value.trim()
@@ -93,6 +95,8 @@ document.getElementById('submitBtn').addEventListener('click', function (e) {
             form.qtdPacientes.value = registro.qtdPacientes;
             form.quemSolicitou.value = registro.quemSolicitou;
             form.motivo.value = registro.motivo;
+            form.observacao.value = registro.observacao;
+            form.numChamado.value = registro.numChamado;
 
             recordItem.remove();
             form.nome.focus();

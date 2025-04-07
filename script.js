@@ -20,7 +20,7 @@ document.getElementById('submitBtn').addEventListener('click', function (e) {
     const recordsList = document.getElementById('recordsList');
 
     let allFilled = true;
-    const requiredInputs = form.querySelectorAll('input:not([name="motivo"]), textarea:not([name="motivo"]), select');
+    const requiredInputs = form.querySelectorAll('input:not([name="observacao"]), textarea:not([name="observacao"]), select');
     requiredInputs.forEach(input => {
         if (!input.value.trim()) {
             allFilled = false;
@@ -39,10 +39,10 @@ document.getElementById('submitBtn').addEventListener('click', function (e) {
         id: Date.now(), // ID único apenas para controle local
         nome: form.nome.value.trim(),
         data: form.data.value.trim(),
-        marca: form.marcas.value.trim(),
+        marca: form.marca.value.trim(),
         especialidade: form.especialidade.value.trim(),
-        observacao: form.especialidade.value.trim(),
-        numChamado: form.especialidade.value.trim(),
+        observacao: form.observacao.value.trim(),
+        numChamado: form.numChamado.value.trim(),
         qtdPacientes: form.qtdPacientes.value.trim(),
         quemSolicitou: form.quemSolicitou.value.trim(),
         motivo: form.motivo.value.trim()
@@ -56,14 +56,14 @@ document.getElementById('submitBtn').addEventListener('click', function (e) {
 
     recordItem.innerHTML = `
         <div class="record-header">
-            <p class="record-name"><strong>${novoRegistro.nome}</strong></p> -
-            <p class="record-name"><strong>${novoRegistro.numChamado}</strong></p>
+            <p class="record-name"><strong>${novoRegistro.nome}</strong></p>
             <div class="record-actions">
                 <button class="btn-edit">✏️ Editar</button>
                 <button class="btn-delete">🗑️ Excluir</button>
             </div>
-        </div>
-        <p class="record-meta">${formatarDataBR(novoRegistro.data)} <br> | <strong>${novoRegistro.marcas}</strong></p>
+            </div>
+            <p class="record-name">Número do chamado: <strong>${novoRegistro.numChamado}</strong></p>
+        <p class="record-meta">${formatarDataBR(novoRegistro.data)} <br> | <strong>${novoRegistro.marca}</strong></p>
         <p class="record-meta">${novoRegistro.especialidade} (${novoRegistro.qtdPacientes} Pacientes)</p>
         <p class="record-detail">Solicitado por: ${novoRegistro.quemSolicitou}</p>
         ${novoRegistro.motivo ? `<p class="record-detail"><strong>Motivo: ${novoRegistro.motivo}</strong></p>` : ''}
